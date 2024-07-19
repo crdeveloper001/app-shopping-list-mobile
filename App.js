@@ -1,15 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import LoginPage from './components/LoginPage/LoginPage';
+import TabNavigation from './components/TabNavigation/TabNavigation'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
     <>
-      <View style={styles.container}>
-        <StatusBar style="dark" />
-        <LoginPage />
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <View style={styles.container}>
+            <StatusBar style="dark" />
+            <TabNavigation />
+          </View>
+        </SafeAreaProvider>
 
-      </View>
+      </NavigationContainer>
+
     </>
   );
 }
@@ -17,8 +24,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding:25,
+  
     backgroundColor: 'white',
-   
+
   },
 });
